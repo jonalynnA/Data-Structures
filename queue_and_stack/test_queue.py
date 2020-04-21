@@ -1,5 +1,5 @@
-import unittest
 from dll_queue import Queue
+import unittest
 
 
 class QueueTests(unittest.TestCase):
@@ -41,8 +41,6 @@ class QueueTests(unittest.TestCase):
         self.assertIsNone(self.q.dequeue())
         self.assertEqual(self.q.len(), 0)
 
+
 if __name__ == '__main__':
     unittest.main()
-
-
-        

@@ -3,10 +3,24 @@ Answer the following questions for each of the data structures you implemented a
 ## Queue
 
 1. What is the runtime complexity of `enqueue`?
+# using doubly linked or even circular the 'enqueue' can only happen
+# at the end of the link so it only happens at 1 time no matter how long
+# the list is
+
+    O(1)
 
 2. What is the runtime complexity of `dequeue`?
+# similarly to the above, dequeue can only happen at the head or the front of the list
+# it only happens 1 time and is irrespective to list length
+# keep in mind you cannot dequeue if the list is empty so verify that the list
+# is not empty with length/size of the storage/container being checked with an
+# if statement -> if storage.size is < 1 (or == to 0) return None and the function is exited
+
+    O(1)
 
 3. What is the runtime complexity of `len`?
+
+    O(1)
 
 ## Binary Search Tree
 
