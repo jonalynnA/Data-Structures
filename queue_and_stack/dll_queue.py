@@ -18,7 +18,9 @@ class Queue:
         self.storage = DoublyLinkedList()
 
     def enqueue(self, value):
-        # add item to the list (First in last out)
+        # add item to the list
+        # (inherently adding something to a list puts it at the end) (First in last out)
+        # end of list = (the tail)(the bottom)(the right)
         # function add_to_tail from DoublyLinkedList class does this
         # list size is important, remember to update list size with each function
         # enqueue adds one to the list so size will increase by 1
@@ -26,7 +28,9 @@ class Queue:
         return self.storage.add_to_tail(value)
 
     def dequeue(self):
-        # remove item from the list
+        # remove item from the list(first in last out)
+        # removing from the list or in a queue means removing from the front of the list
+        # front of list = (the head)(the top)(the front)(the left)
         # function remove_from_head from DoublyLinkedList class does this
         # list size is important, remember to update list size
         # dequeue removes a value from the list so size decreases by 1
