@@ -77,7 +77,7 @@ class BinarySearchTree:
     def in_order_print(self, node):
         if node:  # If a node is passed in recursively, run code block, otherwise end
             self.in_order_print(node.left)  # pass in left
-            # print(node.value)  # print current value
+            print(node.value)  # print current value
             self.in_order_print(node.right)  # pass in right
 
     # Print the value of every node, starting with the given node,
@@ -87,7 +87,7 @@ class BinarySearchTree:
         queue.enqueue(self)  # add root to (end of) queue
         while queue.size() > 0:  # While there is something in queue
             current_node = queue.dequeue()  # grab node from front of queue
-            # Print current_node value
+            print(current_node.value)
 
             if current_node.left:  # If left
                 queue.enqueue(current_node.left)  # Add left to end of queue
@@ -103,7 +103,7 @@ class BinarySearchTree:
         while stack.size() > 0:  # While there is something in stack
             current_node = stack.pop()  # Grab (top) node from stack
             # Print current_node value
-            # print(current_node.value)
+            print(current_node.value)
             if current_node.left:  # If left
                 stack.push(current_node.left)  # Add left to stack
             if current_node.right:  # If right
