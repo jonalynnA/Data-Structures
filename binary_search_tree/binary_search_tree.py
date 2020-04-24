@@ -12,26 +12,16 @@ class BinarySearchTree:
 
     # Insert the given value into tree
     def insert(self, value):
-        # if value is less than self.value
-        if value < self.value:
-            # if left is none
-            if self.left is None:
-                # set left to be node
-                self.left = BinarySearchTree(value)
-                # if not set left node this value
+        if value < self.value:  # Check if the new nodes value is less than the current value
+            if self.left is None:  # go left
+                self.left = BinarySearchTree(value)  # repeat search
             else:
-                self.left.insert(value)
-
+                self.left.insert(value)  # insert the value
         else:
-          # do same for right side
-            if value >= self.value:
-
-                if self.right is None:
-
-                    self.right = BinarySearchTree(value)
-        # if it has a node, call self.right.insert with this value
+            if self.right is None:  # go right
+                self.right = BinarySearchTree(value)  # repeat search
             else:
-                self.right.insert(value)
+                self.right.insert(value)  # insert the value
 
     # Return True if the tree contains the value
     # False if it does not
@@ -59,16 +49,12 @@ class BinarySearchTree:
     # You may use a recursive or iterative approach
     def for_each(self, cb):
         cb(self.value)
-        if self.right is None:
-            pass
-        else:
+
+        if self.right:
             self.right.for_each(cb)  # pass cb
 
-        if self.left is None:
-            pass
-        else:  # same for left
+        if self.left:  # same for left
             self.left.for_each(cb)
-        cb(self.value)
 
     # DAY 2 Project -----------------------
     # Print all the values in order from low to high
@@ -83,31 +69,33 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        queue = Queue()  # instantiate Queue Class
-        queue.enqueue(self)  # add root to (end of) queue
-        while queue.size() > 0:  # While there is something in queue
-            current_node = queue.dequeue()  # grab node from front of queue
+        storage = Queue()  # instantiate Queue Class
+        storage.enqueue(node)  # add root to queue
+
+        while storage.len() > 0:  # While there is something in queue
+            current_node = storage.dequeue()  # dequeue current node
             print(current_node.value)
 
-            if current_node.left:  # If left
-                queue.enqueue(current_node.left)  # Add left to end of queue
+            if current_node.left:  # check if left child exists
+                storage.enqueue(current_node.left)  # enqueue left child
 
-            if current_node.right:  # If right
-                queue.enqueue(current_node.right)  # Add right to end of queue
+            if current_node.right:  # check if a right child exists
+                storage.enqueue(current_node.right)  # enqueue right child
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        stack = Stack()  # instantiate Stack Class
-        stack.push(self)  # add root to stack
-        while stack.size() > 0:  # While there is something in stack
-            current_node = stack.pop()  # Grab (top) node from stack
-            # Print current_node value
+        storage = Stack()  # instantiate Stack Class
+        storage.push(self)  # add root to stack
+        while storage.len() > 0:  # While there is something in stack
+            current_node = storage.pop()  # Grab (top) node from stack
             print(current_node.value)
+
             if current_node.left:  # If left
-                stack.push(current_node.left)  # Add left to stack
+                storage.push(current_node.left)  # Add left to stack
+
             if current_node.right:  # If right
-                stack.push(current_node.right)  # Add right to stack
+                storage.push(current_node.right)  # Add right to stack
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
