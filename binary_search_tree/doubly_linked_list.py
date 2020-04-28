@@ -7,7 +7,6 @@ class ListNode:
         self.value = value
         self.prev = prev
         self.next = next
-
     """Wrap the given value in a ListNode and insert it
     after this node. Note that this node could already
     have a next node it is point to."""
@@ -17,7 +16,6 @@ class ListNode:
         self.next = ListNode(value, self, current_next)
         if current_next:
             current_next.prev = self.next
-
     """Wrap the given value in a ListNode and insert it
     before this node. Note that this node could already
     have a previous node it is point to."""
@@ -27,7 +25,6 @@ class ListNode:
         self.prev = ListNode(value, current_prev, self)
         if current_prev:
             current_prev.next = self.prev
-
     """Rearranges this ListNode's previous and next pointers
     accordingly, effectively deleting this ListNode."""
 
